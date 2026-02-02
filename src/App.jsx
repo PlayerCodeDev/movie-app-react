@@ -1,6 +1,7 @@
 // import React from 'react';
 import { useState, useEffect } from 'react';
 import Search from './components/Search.jsx';
+import Spinner from './components/spinner.jsx';
 
 const API_BASE_URL = 'https://api.themoviedb.org/3';
 
@@ -67,10 +68,10 @@ const App = () => {
         </header>
 
         <section className='all-movies'>
-          <h2>All Movies</h2>
+          <h2 className='mt-10'>All Movies</h2>
 
           {isLoading ? (
-            <p className='text-white'>Loading...</p>
+            <Spinner />
           ) : errorMessage ? (
             <p className='text-red-500'>{errorMessage}</p>
           ) : (
