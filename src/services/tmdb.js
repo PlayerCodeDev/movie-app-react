@@ -8,8 +8,11 @@ const API_OPTION = {
   }
 };
 
-const fetchFromTMDB = async ( endpoint ) => {
-  const response = await fetch(`${API_BASE_URL}${endpoint}`, API_OPTION);
+const fetchFromTMDB = async ( endpoint, signal ) => {
+  const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+    ...API_OPTION,
+    signal
+  });
 
   if (!response.ok) {
     throw new Error('Failed to fetch data from TMDB.');
@@ -18,17 +21,19 @@ const fetchFromTMDB = async ( endpoint ) => {
   return response.json();
 };
 
-export const searchMovies = async ( query ) => {
+export const searchMovies = async ( query, signal ) => {
   const data = await fetchFromTMDB(
-    `/search/movie?query=${encodeURIComponent(query)}`
+    `/search/movie?query=${encodeURIComponent(query)}`,
+    signal
   );
 
   return data.results || [];
 };
 
-export const getPopulaMovies = async () => {
+export const getPopularMovies = async ( signal ) => {
   const data = await fetchFromTMDB(
-    `/discover/movie?sort_by=popularity.desc`
+    `/discover/movie?sort_by=popularity.desc`,
+    signal
   );
 
   return data.results || [];
