@@ -1,16 +1,58 @@
-# React + Vite
+# 🎬 Movie App React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Demo: [https://movie-app-react-beta-nine.vercel.app](https://movie-app-react-beta-nine.vercel.app)
 
-Currently, two official plugins are available:
+![imagen de precisualización](./public/preview-img.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Aplicación web desarrollada con React que permite buscar películas utilizando la API de The Movie Database (TMDB), visualizar películas populares y mostrar tendencias basadas en busquedas.
 
-## React Compiler
+## 🚀 Características
+* Búsqueda de películas en tiempo real
+* Visualización de películas populares
+* Sección de películas en tendencia
+* cancelación de solicitudes con `AbortController` para evitar *Race Conditions*
+* Registro de búsquedas utilizando Appwrite
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tecnologías utilizadas
+* React (Hooks: `useState`, `useEffect)
+* JavaScript (ES6+)
+* API de TMDB
+* Appwrite (para el almacenamiento de búsquedas)
+* Vite
 
-## Expanding the ESLint configuration
+## 🧠 Conceptos aplicados
+Este proyecto fue desarrollado para mejorar comprención y habilidades con React aplicando conceptos como:
+* Creación de *Custom Hooks* (`useMovies`)
+* Manejo de asincronía con `async/await`
+* Manejo de estado global de componentes
+* Cancelación de peticiones HTTP con `AbortController`
+* Prevención de *Race Conditions* en llamadas concurrentes.
+* Separación de responsabilidades (servicion API, lógica de negocio y UI)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📦 Instalación
+```bash
+git clone https://github.com/PlayerCodeDev/movie-app-react.git
+cd movie-app-react
+pnpm install
+pnpm run dev
+```
+>[!NOTE]
+> Asegúrese de tener Node.js (v18 o superior), pnpm y Git instalados antes de ejecutar el proyecto.
+
+## 🔐 Variables de entorno
+Debes crear un archivo `.env` con las siguientes variables de entorno:
+```bash
+VITE_TMDB_API_KEY=your_api_key
+VITE_APPWRITE_PROJECT_ID=your_project_id
+VITE_APPWRITE_DATABASE_ID=your_database_id
+VITE_APPWRITE_TABLE_ID=your_table_id
+VITE_APPWRITE_ENDPOINT=endpoint_to_appwrite
+```
+
+## 📌 Posibles mejoras
+* Paginación de resultados
+* Tests unitarios
+* Mejoras en diseño UI/UX
+
+## 🎯 Objetivo del proyecto
+Este proyecto fue creado con fines educativos para consolidar conocimientos en React y consumo de APIs externas, aplicando buenas pácticas en manejo de asincronía.
